@@ -1,6 +1,7 @@
 package com.example.aiocalculator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -32,6 +34,13 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.iVCalcLogo.setImageResource(calcArrayList.get(position).getIcon());
         holder.tVCalcName.setText(calcArrayList.get(position).getTitle());
+        holder.cVCalcList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SimpleCalculatorActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,10 +56,12 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tVCalcName;
         ImageView iVCalcLogo;
+        CardView cVCalcList;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tVCalcName = itemView.findViewById(R.id.tVCalcName);
             iVCalcLogo = itemView.findViewById(R.id.iVCalcLogo);
+            cVCalcList = itemView.findViewById((R.id.cVCalcList));
         }
     }
 }
