@@ -10,6 +10,7 @@
         android:id="@+id/btnsGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         app:columnCount="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,12 +22,13 @@
             android:id="@+id/btnAC"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:backgroundTint="@color/red"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:backgroundTint="@color/red"
+            android:onClick="calcOnClick"
             android:text="AC"
             android:textColor="@color/white"
-            android:textSize="40sp"
+            android:textSize="30sp"
             app:cornerRadius="0dp"
             app:layout_column="0"
             app:layout_columnWeight="1"
@@ -42,6 +44,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="C"
             app:cornerRadius="0dp"
             app:layout_column="1"
@@ -58,6 +61,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="%"
             app:cornerRadius="0dp"
             app:layout_column="2"
@@ -74,6 +78,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="+"
             app:cornerRadius="0dp"
             app:layout_column="3"
@@ -92,6 +97,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="7"
             app:cornerRadius="0dp"
             app:layout_column="0"
@@ -108,6 +114,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="8"
             app:cornerRadius="0dp"
             app:layout_column="1"
@@ -124,6 +131,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="9"
             app:cornerRadius="0dp"
             app:layout_column="2"
@@ -140,6 +148,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="-"
             app:cornerRadius="0dp"
             app:layout_column="3"
@@ -159,6 +168,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="4"
             app:cornerRadius="0dp"
             app:layout_column="0"
@@ -175,6 +185,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="5"
             app:cornerRadius="0dp"
             app:layout_column="1"
@@ -191,6 +202,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="6"
             app:cornerRadius="0dp"
             app:layout_column="2"
@@ -207,7 +219,8 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="X"
+            android:onClick="calcOnClick"
+            android:text="x"
             app:cornerRadius="0dp"
             app:layout_column="3"
             app:layout_columnWeight="1"
@@ -225,6 +238,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="1"
             app:cornerRadius="0dp"
             app:layout_column="0"
@@ -241,6 +255,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="2"
             app:cornerRadius="0dp"
             app:layout_column="1"
@@ -257,6 +272,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="3"
             app:cornerRadius="0dp"
             app:layout_column="2"
@@ -273,6 +289,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="/"
             app:cornerRadius="0dp"
             app:layout_column="3"
@@ -285,14 +302,16 @@
         <!-- Fifth Row -->
 
         <Button
-            android:id="@+id/btn00"
+            android:id="@+id/btnswitchAdvanced"
             style="@style/CalculatorNumberButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="00"
+            android:onClick="calcOnClick"
             app:cornerRadius="0dp"
+            app:icon="@drawable/ic_switch_advanced"
+            app:iconTint="#B31A1A"
             app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_row="4"
@@ -307,6 +326,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="0"
             app:cornerRadius="0dp"
             app:layout_column="1"
@@ -323,6 +343,7 @@
             android:layout_height="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="."
             app:cornerRadius="0dp"
             app:layout_column="2"
@@ -337,10 +358,11 @@
             style="@style/CalculatorSpecialButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:backgroundTint="@color/red"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="calcOnClick"
             android:text="="
-            android:backgroundTint="@color/red"
             android:textColor="@color/white"
             android:textSize="40sp"
             app:cornerRadius="0dp"
@@ -350,6 +372,400 @@
             app:layout_rowWeight="1"
             app:strokeColor="@color/white"
             app:strokeWidth="1dp" />
+
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/btnsGridAdvanced"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:columnCount="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rowCount="4">
+
+        <!-- First ROW -->
+        <Button
+            android:id="@+id/btnSin"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="sin("
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_row="0"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnCos"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="cos("
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_row="0"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnTan"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="tan("
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="0"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnLog2"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="log2("
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="0"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <!-- Second Row -->
+
+        <Button
+            android:id="@+id/btnCosec"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="cosec("
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_row="1"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnSec"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="sec("
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_row="1"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnCot"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="cot("
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="1"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnLog10"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="log10("
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="1"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+
+        <!-- Third Row -->
+
+        <Button
+            android:id="@+id/btnSquare"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="^"
+            android:textSize="24sp"
+            app:cornerRadius="0dp"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_row="2"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnLBrac"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="("
+            android:textSize="24sp"
+            app:cornerRadius="0dp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_row="2"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnRBrac"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text=")"
+            android:textSize="24sp"
+            app:cornerRadius="0dp"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="2"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnLn"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="ln("
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            app:cornerRadius="0dp"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="2"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <!-- Fourth Row -->
+
+        <Button
+            android:id="@+id/btnswitchBasic"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/ic_switch_basic"
+            app:iconTint="#B31A1A"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_row="3"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnFact"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="!"
+            android:textSize="24sp"
+            app:cornerRadius="0dp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_row="3"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnPi"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="π"
+            android:textSize="24sp"
+            app:cornerRadius="0dp"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="3"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/btnRoot"
+            style="@style/CalculatorNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="calcOnClick"
+            android:text="√"
+            android:textSize="24sp"
+            app:cornerRadius="0dp"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="3"
+            app:layout_rowWeight="1"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp" />
+
+
+        <!-- Fifth Row -->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btnswitchAdvanced"-->
+        <!--            style="@style/CalculatorNumberButton"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:insetTop="0dp"-->
+        <!--            android:insetBottom="0dp"-->
+        <!--            android:onClick="calcOnClick"-->
+        <!--            app:cornerRadius="0dp"-->
+        <!--            app:icon="@drawable/ic_switch_basic"-->
+        <!--            app:iconTint="#B31A1A"-->
+        <!--            app:layout_column="0"-->
+        <!--            app:layout_columnWeight="1"-->
+        <!--            app:layout_row="4"-->
+        <!--            app:layout_rowWeight="1"-->
+        <!--            app:strokeColor="@color/white"-->
+        <!--            app:strokeWidth="1dp" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btn0"-->
+        <!--            style="@style/CalculatorNumberButton"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:insetTop="0dp"-->
+        <!--            android:insetBottom="0dp"-->
+        <!--            android:onClick="calcOnClick"-->
+        <!--            android:text="0"-->
+        <!--            app:cornerRadius="0dp"-->
+        <!--            app:layout_column="1"-->
+        <!--            app:layout_columnWeight="1"-->
+        <!--            app:layout_row="4"-->
+        <!--            app:layout_rowWeight="1"-->
+        <!--            app:strokeColor="@color/white"-->
+        <!--            app:strokeWidth="1dp" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btnDot"-->
+        <!--            style="@style/CalculatorNumberButton"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:insetTop="0dp"-->
+        <!--            android:insetBottom="0dp"-->
+        <!--            android:onClick="calcOnClick"-->
+        <!--            android:text="."-->
+        <!--            app:cornerRadius="0dp"-->
+        <!--            app:layout_column="2"-->
+        <!--            app:layout_columnWeight="1"-->
+        <!--            app:layout_row="4"-->
+        <!--            app:layout_rowWeight="1"-->
+        <!--            app:strokeColor="@color/white"-->
+        <!--            app:strokeWidth="1dp" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btnEquals"-->
+        <!--            style="@style/CalculatorSpecialButton"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:backgroundTint="@color/red"-->
+        <!--            android:insetTop="0dp"-->
+        <!--            android:insetBottom="0dp"-->
+        <!--            android:onClick="calcOnClick"-->
+        <!--            android:text="="-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="40sp"-->
+        <!--            app:cornerRadius="0dp"-->
+        <!--            app:layout_column="3"-->
+        <!--            app:layout_columnWeight="1"-->
+        <!--            app:layout_row="4"-->
+        <!--            app:layout_rowWeight="1"-->
+        <!--            app:strokeColor="@color/white"-->
+        <!--            app:strokeWidth="1dp" />-->
 
 
     </androidx.gridlayout.widget.GridLayout>

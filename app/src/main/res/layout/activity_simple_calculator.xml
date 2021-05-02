@@ -21,11 +21,13 @@
         android:id="@+id/tVCalcInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="false"
         android:gravity="bottom|right"
         android:lines="5"
+        android:longClickable="false"
         android:text="0"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="36sp" />
 
     <View
         android:layout_width="match_parent"
@@ -36,6 +38,7 @@
         android:id="@+id/tVCalcRes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableStart="?attr/actionModeCopyDrawable"
         android:gravity="right"
         android:text="=0"
         android:textSize="24sp" />
