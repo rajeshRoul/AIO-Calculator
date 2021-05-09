@@ -30,8 +30,8 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         initClickListeners();
     }
 
+//    Initialize all types of click Listeners
     private void initClickListeners() {
-
         tVCalcRes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,10 +44,11 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     }
 
 
-
+//Evaluate Expression from input text box and display result in output text box
     private void evaluateExpression(){
         String exp = tVCalcInput.getText().toString().trim();
-        Expression e = new Expression(exp);
+        String finalExp = parseExp(exp);
+        Expression e = new Expression(finalExp);
         String res = "=" + e.calculate();
         if(res.charAt(res.length()-1) == '0' && res.charAt(res.length()-2) == '.'){
             tVCalcRes.setText(res.substring(0, res.length()-2));
@@ -57,6 +58,22 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
 
     }
 
+//    Convert Expression to a valid expression before evaluating
+    private String parseExp(String s){
+        String res = "";
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i) == 'x'){
+                res += "*";
+            }else if(s.charAt(i) == '°'){
+                res += "*[deg]";
+            }else{
+                res += s.charAt(i);
+            }
+        }
+        return res;
+    }
+
+//    Initialize Data
     private void initData() {
         tVCalcInput.setText("0");
         tVCalcRes.setText("=0");
@@ -64,6 +81,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         btnsGridAdvanced.setVisibility(View.GONE);
     }
 
+//    Initialize all views
     private void initViews() {
         tVCalcInput= findViewById(R.id.tVCalcInput);
         tVCalcRes = findViewById(R.id.tVCalcRes);
@@ -71,6 +89,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         btnsGridAdvanced = (GridLayout)findViewById(R.id.btnsGridAdvanced);
     }
 
+//    Handles user input
     public void calcOnClick(View v){
         switch (v.getId()){
             case R.id.btnAC:{
@@ -91,7 +110,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
                 break;
             }
             case R.id.btnEquals:{
-                tVCalcInput.setText(tVCalcRes.getText().toString().substring(1));
+                tVCalcInput.setText(tVCalcRes.getText().toString().trim().substring(1) + "");
                 break;
             }
             case R.id.btnswitchAdvanced:{
@@ -107,11 +126,20 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             default:{
                 String temp = ((Button)v).getText().toString();
                 String existing = tVCalcInput.getText().toString().trim();
+                if(temp.equals("√")) {
+                    temp = "sqrt(";
+                }
+                int exLastInd = existing.length()-1;
                 if(existing == "0"){
-                    if(!(temp.equals("+") || temp.equals("%") || temp.equals("x") || temp.equals("/") || temp.equals("00"))){
+                    if(!(temp.equals("+") || temp.equals("%") || temp.equals("x") || temp.equals("/"))){
                         tVCalcInput.setText(temp);
                     }
-                }else{
+                } else{
+                    if(existing.charAt(exLastInd) == '+' || existing.charAt(exLastInd) == '-' || existing.charAt(exLastInd) == 'x' || existing.charAt(exLastInd) == '/'){
+                        if(temp.equals("+") || temp.equals("-") || temp.equals("x") || temp.equals("/") || temp.equals("%")){
+                            temp = "";
+                        }
+                    }
                     tVCalcInput.setText((existing + temp));
                 }
                 evaluateExpression();
