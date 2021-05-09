@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -37,8 +38,21 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Vi
         holder.cVCalcList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SimpleCalculatorActivity.class);
-                context.startActivity(intent);
+                switch (position){
+                    case 0:{
+                        Intent intent = new Intent(context, SimpleCalculatorActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    } case 1:{
+                        Intent intent = new Intent(context, AgeCalActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    } default:{
+                        Toast.makeText(context, "Under Construction", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
             }
         });
     }
