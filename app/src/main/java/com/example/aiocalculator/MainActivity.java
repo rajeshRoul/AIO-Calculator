@@ -47,10 +47,14 @@ public class MainActivity extends AppCompatActivity {
         calcArrayList.add(new Calculator(R.mipmap.simple, "Simple Calculator"));
         calcArrayList.add(new Calculator(R.mipmap.age, "Age Calculator"));
         calcArrayList.add(new Calculator(R.mipmap.number_system, "Numeral Calculator"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Simple Calculator"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Simple Calculator"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Simple Calculator"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Simple Calculator"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Simple Calculator"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Temperature Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
+        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
     }
 }
