@@ -1,8 +1,8 @@
 package com.example.aiocalculator;
 
 public class Calculator {
-    private int icon;
-    private String title;
+    private final int icon;
+    private final String title;
 
     public Calculator(int icon, String title) {
         this.icon = icon;
@@ -12,16 +12,8 @@ public class Calculator {
     public int getIcon() {
         return icon;
     }
-
-    public void setIcon(int icon) {
-        this.icon = icon;
-    }
-
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }

@@ -36,7 +36,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/btn_star_big_on" />
+                app:srcCompat="@android:drawable/btn_star_big_on"
+                android:contentDescription="Calculator Logo" />
 
             <TextView
                 android:id="@+id/tVCalcName"

@@ -6,11 +6,8 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,34 +35,49 @@ public class TempConActivity extends AppCompatActivity {
 
     private void initClickListeners() {
 
-        tVCelsius.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selected = 0;
-                arrayListInput.get(0).setTextColor(getResources().getColor(R.color.red));
-                arrayListInput.get(1).setTextColor(getResources().getColor(R.color.btnTextColor));
-                arrayListInput.get(2).setTextColor(getResources().getColor(R.color.btnTextColor));
-            }
+        tVCelsius.setOnClickListener(v -> {
+            selected = 0;
+            arrayListInput.get(0).setTextColor(getResources().getColor(R.color.red));
+            arrayListInput.get(1).setTextColor(getResources().getColor(R.color.btnTextColor));
+            arrayListInput.get(2).setTextColor(getResources().getColor(R.color.btnTextColor));
         });
 
-        tVFahrenheit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selected = 1;
-                arrayListInput.get(1).setTextColor(getResources().getColor(R.color.red));
-                arrayListInput.get(0).setTextColor(getResources().getColor(R.color.btnTextColor));
-                arrayListInput.get(2).setTextColor(getResources().getColor(R.color.btnTextColor));
-            }
+        tVFahrenheit.setOnClickListener(v -> {
+            selected = 1;
+            arrayListInput.get(1).setTextColor(getResources().getColor(R.color.red));
+            arrayListInput.get(0).setTextColor(getResources().getColor(R.color.btnTextColor));
+            arrayListInput.get(2).setTextColor(getResources().getColor(R.color.btnTextColor));
         });
 
-        tVKelvin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selected = 2;
-                arrayListInput.get(2).setTextColor(getResources().getColor(R.color.red));
-                arrayListInput.get(1).setTextColor(getResources().getColor(R.color.btnTextColor));
-                arrayListInput.get(0).setTextColor(getResources().getColor(R.color.btnTextColor));
-            }
+        tVKelvin.setOnClickListener(v -> {
+            selected = 2;
+            arrayListInput.get(2).setTextColor(getResources().getColor(R.color.red));
+            arrayListInput.get(1).setTextColor(getResources().getColor(R.color.btnTextColor));
+            arrayListInput.get(0).setTextColor(getResources().getColor(R.color.btnTextColor));
+        });
+
+        tVCelsius.setOnLongClickListener(v -> {
+            ClipboardManager cm = (ClipboardManager)TempConActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clipData = ClipData.newPlainText("copied to clipboard",tVCelsius.getText().toString().trim());
+            cm.setPrimaryClip(clipData);
+            Toast.makeText(TempConActivity.this, "Result in Celsius Copied", Toast.LENGTH_SHORT).show();
+            return true;
+        });
+
+        tVFahrenheit.setOnLongClickListener(v -> {
+            ClipboardManager cm = (ClipboardManager)TempConActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clipData = ClipData.newPlainText("copied to clipboard",tVFahrenheit.getText().toString().trim());
+            cm.setPrimaryClip(clipData);
+            Toast.makeText(TempConActivity.this, "Result in Fahrenheit Copied", Toast.LENGTH_SHORT).show();
+            return true;
+        });
+
+        tVKelvin.setOnLongClickListener(v -> {
+            ClipboardManager cm = (ClipboardManager)TempConActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clipData = ClipData.newPlainText("copied to clipboard",tVKelvin.getText().toString().trim());
+            cm.setPrimaryClip(clipData);
+            Toast.makeText(TempConActivity.this, "Result in Kelvin Copied", Toast.LENGTH_SHORT).show();
+            return true;
         });
 
     }
@@ -128,7 +140,11 @@ public class TempConActivity extends AppCompatActivity {
             } default:{
                 String temp = arrayListInput.get(selected).getText().toString().trim();
                 if (!temp.equals("0")){
-                    arrayListInput.get(selected).setText(temp + ((Button)v).getText().toString().trim());
+                    if(temp.length() <= 28){
+                        arrayListInput.get(selected).setText(temp + ((Button)v).getText().toString().trim());
+                    }else{
+                        Toast.makeText(TempConActivity.this, "Input number is too long", Toast.LENGTH_SHORT).show();
+                    }
                 }else {
                     arrayListInput.get(selected).setText(((Button)v).getText().toString().trim());
                 }
@@ -143,7 +159,6 @@ public class TempConActivity extends AppCompatActivity {
                 double celsius = parseInput();
                 double fahrenheit =((celsius*9)/5)+32;
                 double kelvin = celsius + 273.15;
-                Toast.makeText(TempConActivity.this, "f k" + fahrenheit + " " + kelvin, Toast.LENGTH_LONG);
                 tVFahrenheit.setText(fahrenheit + "");
                 tVKelvin.setText(kelvin + "");
                 break;
@@ -151,7 +166,6 @@ public class TempConActivity extends AppCompatActivity {
                 double fahrenheit = parseInput();
                 double celsius = (fahrenheit-32)*(0.5556);
                 double kelvin = 273.5 + ((fahrenheit - 32.0) * (5.0/9.0));
-                Toast.makeText(TempConActivity.this, "c k" + celsius + " " + kelvin, Toast.LENGTH_LONG);
                 tVCelsius.setText(celsius + "");
                 tVKelvin.setText(kelvin + "");
                 break;
@@ -159,8 +173,6 @@ public class TempConActivity extends AppCompatActivity {
                 double kelvin = parseInput();
                 double celsius = kelvin - 273.15;
                 double fahrenheit = (9/5.0*(kelvin - 273.15) + 32);
-                Toast.makeText(TempConActivity.this, "f c" + fahrenheit + " " + celsius, Toast.LENGTH_LONG);
-
                 tVCelsius.setText(celsius + "");
                 tVFahrenheit.setText(fahrenheit + "");
                 break;

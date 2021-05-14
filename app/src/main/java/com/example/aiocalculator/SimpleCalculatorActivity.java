@@ -9,7 +9,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,14 +31,11 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
 
 //    Initialize all types of click Listeners
     private void initClickListeners() {
-        tVCalcRes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ClipboardManager cm = (ClipboardManager)SimpleCalculatorActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clipData = ClipData.newPlainText("copied to clipboard",tVCalcRes.getText().toString().substring(1));
-                cm.setPrimaryClip(clipData);
-                Toast.makeText(SimpleCalculatorActivity.this, "Result Copied", Toast.LENGTH_SHORT).show();
-            }
+        tVCalcRes.setOnClickListener(v -> {
+            ClipboardManager cm = (ClipboardManager)SimpleCalculatorActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clipData = ClipData.newPlainText("copied to clipboard",tVCalcRes.getText().toString().substring(1));
+            cm.setPrimaryClip(clipData);
+            Toast.makeText(SimpleCalculatorActivity.this, "Result Copied", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -130,7 +126,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
                     temp = "sqrt(";
                 }
                 int exLastInd = existing.length()-1;
-                if(existing == "0"){
+                if(existing.equals("0")){
                     if(!(temp.equals("+") || temp.equals("%") || temp.equals("x") || temp.equals("/"))){
                         tVCalcInput.setText(temp);
                     }

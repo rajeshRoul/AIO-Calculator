@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="false"
-        android:gravity="bottom|right"
+        android:gravity="bottom|end"
         android:lines="5"
         android:longClickable="false"
         android:text="0"
@@ -31,7 +31,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2px"
+        android:layout_height="1dp"
         android:background="@color/grey"/>
 
     <TextView
@@ -39,13 +39,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableStart="?attr/actionModeCopyDrawable"
-        android:gravity="right"
+        android:gravity="end"
         android:text="=0"
         android:textSize="24sp" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2px"
+        android:layout_height="1dp"
         android:background="@color/grey"/>
 
     <include

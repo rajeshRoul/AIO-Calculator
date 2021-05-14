@@ -35,29 +35,26 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.iVCalcLogo.setImageResource(calcArrayList.get(position).getIcon());
         holder.tVCalcName.setText(calcArrayList.get(position).getTitle());
-        holder.cVCalcList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (position){
-                    case 0:{
-                        Intent intent = new Intent(context, SimpleCalculatorActivity.class);
-                        context.startActivity(intent);
-                        break;
-                    } case 1:{
-                        Intent intent = new Intent(context, AgeCalActivity.class);
-                        context.startActivity(intent);
-                        break;
-                    } case 3:{
-                        Intent intent = new Intent(context, TempConActivity.class);
-                        context.startActivity(intent);
-                        break;
-                    } default:{
-                        Toast.makeText(context, "Under Construction", Toast.LENGTH_SHORT).show();
-                    }
-
+        holder.cVCalcList.setOnClickListener(v -> {
+            switch (position){
+                case 0:{
+                    Intent intent = new Intent(context, SimpleCalculatorActivity.class);
+                    context.startActivity(intent);
+                    break;
+                } case 1:{
+                    Intent intent = new Intent(context, AgeCalActivity.class);
+                    context.startActivity(intent);
+                    break;
+                } case 3:{
+                    Intent intent = new Intent(context, TempConActivity.class);
+                    context.startActivity(intent);
+                    break;
+                } default:{
+                    Toast.makeText(context, "Under Construction", Toast.LENGTH_SHORT).show();
                 }
 
             }
+
         });
     }
 
@@ -71,7 +68,7 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Vi
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tVCalcName;
         ImageView iVCalcLogo;
         CardView cVCalcList;
