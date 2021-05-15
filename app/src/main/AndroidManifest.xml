@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AIOCalculator">
-        <activity android:name=".MassConvertorActivity"></activity>
+        <activity android:name=".TimeConvertorActivity"></activity>
+        <activity android:name=".MassConvertorActivity" />
         <activity android:name=".EnergyConvertorActivity" />
         <activity android:name=".SpeedConvertorActivity" />
         <activity android:name=".DataConvertorActivity" />
