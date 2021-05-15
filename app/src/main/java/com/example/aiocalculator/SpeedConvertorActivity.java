@@ -18,12 +18,12 @@ import org.mariuszgromada.math.mxparser.Expression;
 
 import java.util.ArrayList;
 
-public class DataConvertorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class SpeedConvertorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-//    Spinner Data
-    String[] data = {"Bit(b)", "Byte(B)","Kilobit(Kb)", "Kilobyte(KB)", "Megabit(Mb)", "Megabyte(MB)","Gigabit(Gb)", "GigaByte(GB)", "Terabit(Tb)", "Terabyte(TB)", "Petabit(Pb)", "Petabyte(PB)", "Exabit(Eb)", "Exabyte(EB)", "Zettabit(Zb)", "Zettabyte(ZB)", "Yottabit(Yb)", "Yottabyte(YB)"};
-//    Calculation Values corresponding to spinner selected item
-    String[] dataSymbols = {"[b]", "[B]", "[kb]", "[kB]", "[Mb]", "[MB]", "[Gb]", "[GB]", "[Tb]", "[TB]", "[Pb]", "[PB]", "[Eb]", "[EB]", "[Zb]", "[ZB]", "[Yb]", "[YB]"};
+    //    Spinner Data
+    String[] data = {"Meter/Second", "Kolimeter/hour", "Mile/Hour", "Knot"};
+    //    Calculation Values corresponding to spinner selected item
+    String[] dataSymbols = {"[m/s]", "[km/h]", "[mi/h]", "[knot]"};
 
     int selected1;
     int selected2;
@@ -37,7 +37,7 @@ public class DataConvertorActivity extends AppCompatActivity implements AdapterV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convertor);
-        
+
         initViews();
         initData();
         initClickListeners();
@@ -68,11 +68,11 @@ public class DataConvertorActivity extends AppCompatActivity implements AdapterV
         tVDataConv1.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ClipboardManager cm = (ClipboardManager)DataConvertorActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cm = (ClipboardManager)SpeedConvertorActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
                 String temp = tVDataConv1.getText().toString().trim();
                 ClipData clipData = ClipData.newPlainText("copied to clipboard",temp);
                 cm.setPrimaryClip(clipData);
-                Toast.makeText(DataConvertorActivity.this, "Result Copied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SpeedConvertorActivity.this, "Result Copied", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -80,11 +80,11 @@ public class DataConvertorActivity extends AppCompatActivity implements AdapterV
         tVDataConv2.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ClipboardManager cm = (ClipboardManager)DataConvertorActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cm = (ClipboardManager)SpeedConvertorActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
                 String temp = tVDataConv2.getText().toString().trim();
                 ClipData clipData = ClipData.newPlainText("copied to clipboard",temp);
                 cm.setPrimaryClip(clipData);
-                Toast.makeText(DataConvertorActivity.this, "Result Copied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SpeedConvertorActivity.this, "Result Copied", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -130,7 +130,7 @@ public class DataConvertorActivity extends AppCompatActivity implements AdapterV
                 String temp = inputs.get(selected).getText().toString().trim();
                 boolean flag = false;
                 if(temp.length() >= 16){
-                    Toast.makeText(DataConvertorActivity.this, "Input number is too long", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SpeedConvertorActivity.this, "Input number is too long", Toast.LENGTH_SHORT).show();
                     break;
                 }
                 for(int i=0; i<temp.length(); i++){
@@ -146,7 +146,7 @@ public class DataConvertorActivity extends AppCompatActivity implements AdapterV
             } case R.id.btn0:{
                 String temp = inputs.get(selected).getText().toString().trim();
                 if(temp.length() >= 16){
-                    Toast.makeText(DataConvertorActivity.this, "Input number is too long", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SpeedConvertorActivity.this, "Input number is too long", Toast.LENGTH_SHORT).show();
                     break;
                 }
                 if(!temp.equals("0") ){
@@ -160,7 +160,7 @@ public class DataConvertorActivity extends AppCompatActivity implements AdapterV
                     if(temp.length() < 16){
                         inputs.get(selected).setText(temp + ((Button)v).getText().toString().trim());
                     }else{
-                        Toast.makeText(DataConvertorActivity.this, "Input number is too long", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SpeedConvertorActivity.this, "Input number is too long", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     inputs.get(selected).setText(((Button)v).getText().toString().trim());
@@ -171,7 +171,7 @@ public class DataConvertorActivity extends AppCompatActivity implements AdapterV
     }
 
     private void initData() {
-        tVTitle.setText("Data Convertor");
+        tVTitle.setText("Speed Convertor");
         spinnerDataConv1.setOnItemSelectedListener(this);
         spinnerDataConv2.setOnItemSelectedListener(this);
         ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, data);
@@ -210,4 +210,5 @@ public class DataConvertorActivity extends AppCompatActivity implements AdapterV
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
+
 }

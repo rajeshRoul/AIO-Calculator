@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
         calcArrayList.add(new Calculator(R.mipmap.simple, "Simple Calculator"));
         calcArrayList.add(new Calculator(R.mipmap.age, "Age Calculator"));
         calcArrayList.add(new Calculator(R.mipmap.number_system, "Numeral Calculator"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Temperature Convertor"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Data Convertor"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
-        calcArrayList.add(new Calculator(R.mipmap.simple, "Dummy"));
+        calcArrayList.add(new Calculator(R.mipmap.temperature, "Temperature Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.data, "Data Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.speed, "Speed Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.energy, "Energy Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.mass, "Mass Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.time, "Time Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.volume, "Volume Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.area, "Area Convertor"));
+        calcArrayList.add(new Calculator(R.mipmap.length, "Length Convertor"));
     }
 }
