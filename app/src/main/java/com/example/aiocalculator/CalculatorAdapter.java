@@ -69,6 +69,10 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Vi
                     Intent intent = new Intent(context, TimeConvertorActivity.class);
                     context.startActivity(intent);
                     break;
+                } case 9:{
+                    Intent intent = new Intent(context, VolumeConvertorActivity.class);
+                    context.startActivity(intent);
+                    break;
                 } default:{
                     Toast.makeText(context, "Under Construction", Toast.LENGTH_SHORT).show();
                 }
