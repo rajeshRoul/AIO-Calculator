@@ -3,10 +3,14 @@ package com.example.aiocalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -38,8 +42,9 @@ public class AgeCalActivity extends AppCompatActivity {
             }
             DatePickerDialog datePickerDialog = new DatePickerDialog(AgeCalActivity.this,
                     (view, birthYear, birthMonth, birthDate) -> {
-                    setAge(mDay, mMonth, mYear, birthDate, birthMonth, birthYear);
-                    tVSelectDate.setText(birthDate + "-" + birthMonth + "-" + birthYear);
+                        birthMonth += 1;
+                        setAge(mDay, mMonth+1, mYear, birthDate, birthMonth, birthYear);
+                        tVSelectDate.setText(birthDate + "-" + birthMonth + "-" + birthYear);
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
         });
