@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         calcArrayList = new ArrayList<>();
         calcArrayList.add(new Calculator(R.mipmap.simple, "Simple Calculator"));
         calcArrayList.add(new Calculator(R.mipmap.age, "Age Calculator"));
-        calcArrayList.add(new Calculator(R.mipmap.number_system, "Numeral Calculator"));
+        calcArrayList.add(new Calculator(R.mipmap.currency, "Currency Convertor"));
         calcArrayList.add(new Calculator(R.mipmap.temperature, "Temperature Convertor"));
         calcArrayList.add(new Calculator(R.mipmap.data, "Data Convertor"));
         calcArrayList.add(new Calculator(R.mipmap.speed, "Speed Convertor"));

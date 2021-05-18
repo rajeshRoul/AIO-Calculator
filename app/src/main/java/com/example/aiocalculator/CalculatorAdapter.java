@@ -45,6 +45,10 @@ public class CalculatorAdapter extends RecyclerView.Adapter<CalculatorAdapter.Vi
                     Intent intent = new Intent(context, AgeCalActivity.class);
                     context.startActivity(intent);
                     break;
+                } case 2:{
+                    Intent intent = new Intent(context, CurrencyConvertorActivity.class);
+                    context.startActivity(intent);
+                    break;
                 } case 3:{
                     Intent intent = new Intent(context, TempConActivity.class);
                     context.startActivity(intent);
