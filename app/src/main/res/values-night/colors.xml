@@ -10,10 +10,10 @@
     <color name="red">#B11313</color>
     <color name="grey">#6A6A6A</color>
     <color name="textcolor">#E1E1E1</color>
-    <color name="btnBackgroundColor">#ffffff</color>
-    <color name="btnTextColor">#000000</color>
-    <color name="backgroundColor">#ffffff</color>
-    <color name="rVbackgroundColor">#ffffff</color>
-    <color name="cardColor">#F9FAFA</color>
-    <color name="lightTextColor">#333232</color>
+    <color name="btnBackgroundColor">#000000</color>
+    <color name="btnTextColor">#F3F3F3</color>
+    <color name="backgroundColor">#302F2F</color>
+    <color name="rVbackgroundColor">#000000</color>
+    <color name="cardColor">#353535</color>
+    <color name="lightTextColor">#B6B5B5</color>
 </resources>

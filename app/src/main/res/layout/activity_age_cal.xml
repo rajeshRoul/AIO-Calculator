@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/backgroundColor"
     tools:context=".AgeCalActivity">
 
     <TextView
@@ -11,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:fontFamily="cursive"
+        android:fontFamily="sans-serif-condensed"
         android:text="Age Calculator"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/purple_700"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

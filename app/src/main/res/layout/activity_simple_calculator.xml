@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/backgroundColor"
     android:orientation="vertical"
     tools:context=".SimpleCalculatorActivity">
 
@@ -11,10 +12,10 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="cursive"
+        android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
         android:text="Calculator"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/purple_700"
         android:textSize="24sp" />
 
     <TextView
@@ -26,13 +27,13 @@
         android:lines="5"
         android:longClickable="false"
         android:text="0"
-        android:textColor="#000000"
+        android:textColor="@color/btnTextColor"
         android:textSize="36sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/grey"/>
+        android:background="@color/grey" />
 
     <TextView
         android:id="@+id/tVCalcRes"
@@ -41,15 +42,16 @@
         android:drawableStart="?attr/actionModeCopyDrawable"
         android:gravity="end"
         android:text="=0"
+        android:textColor="@color/lightTextColor"
         android:textSize="24sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/grey"/>
+        android:background="@color/grey" />
 
     <include
         layout="@layout/simple_calculator_buttons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </LinearLayout>
